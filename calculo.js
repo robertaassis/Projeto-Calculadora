@@ -1,5 +1,6 @@
 var total=0;
 var teste = '';
+var numeros=[];
 function montaString(valor){
    
     $('#screen').html('');
@@ -14,22 +15,25 @@ function montaString(valor){
 }
 
 function pegaValor(operador){
-   
+
     let qtdRequerida = parseInt(document.getElementById("screenaux").innerText);
+    numeros.push(qtdRequerida);
     $('#screen').html('');
-     console.log(qtdRequerida);
-
-    if(operador=='+') total+=parseInt(qtdRequerida); 
+    //  console.log(qtdRequerida);
+    for(let i=0;i<numeros.length;i++){
+        if(numeros[i]=='+') total+=parseInt(qtdRequerida);
     
-    else if(operador=='-') total-=parseInt(qtdRequerida); 
+        else if(numeros[i]=='-') total-=parseInt(qtdRequerida); 
 
-    else if(operador=='/') total/=parseInt(qtdRequerida); 
+        else if(numeros[i]=='/') total/=parseInt(qtdRequerida); 
 
+        else if(operador=='*') total*=parseInt(qtdRequerida); 
 
-    else if(operador=='*') total*=parseInt(qtdRequerida); 
- 
-     console.log("esse e o total " +total);
-    qtdRequerida='';
+    }
+    
+
+    //  console.log("esse e o total " +total);
+     qtdRequerida='';
 
 }
 
